@@ -13,6 +13,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Excersize_3a_Lexicon
 {
@@ -20,10 +21,58 @@ namespace Excersize_3a_Lexicon
     {
         static void Main(string[] args)
         {
+            string[] names = { "Fido", "Bellman", "Kalle", "Bjorn", "Sture", "Sten", "Herman", "Giovanni", "Chatot", "Karin", "Kerstin", "David", "Anders", "Alice", "Maja", "Elsa", "Astrid", "Wilma", "Freja", "Olivia", "Selma", "Alma", "Ella", "Noah", "William", "Hugo", "Lucas", "Liam", "Oscar", "Oliver", "Matteo", "Elias", "Adam" };
             Random rnd = new Random();
+            /*--------------------------------------------*/
+            PersonHandler handler = new PersonHandler();
+            handler.AddPerson(48, "Ivar", "Bengtsson", 178.93, 78.9);
+            try
+            {
+                handler.AddPerson(23, "M", "Kortison", 155.25, 45.5);
+            }
+            catch(ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                handler.AddPerson(23, "My", "Ko", 155.25, 45.5);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                handler.AddPerson(-5, "My", "Kortison", 155.25, 45.5);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            for(int i = 0; i < 19; i++)
+            {
+                handler.AddPerson(rnd.Next(100), names[rnd.Next(names.Length)], names[rnd.Next(names.Length)], rnd.NextDouble() * 200, rnd.NextDouble() * 125);
+            }
+            for(int i = 0; i < 69; i++)
+            {
+                for (int j = 0; j < handler.peoples.Count; j++)
+                {
+                    if(j == handler.Age(j))
+                    {
+                        handler.GainOrLoseWeight(j, rnd.NextDouble() * 0.5);
+                        handler.GrowOrShrink(j, rnd.NextDouble() * 0.25);
+                    }
+                    else
+                    {
+                        j--;
+                    }
+                }
+            }
+            /*-------------------------------------------*/
+            Console.WriteLine();
             List<Animal> list = new List<Animal>();
-            string[] names = {"Fido", "Bellman", "Kalle", "Bjorn", "Sture", "Sten", "Herman", "Giovanni", "Chatot", "Karin", "Kerstin", "David", "Anders", "Alice", "Maja", "Elsa", "Astrid", "Wilma", "Freja", "Olivia", "Selma", "Alma", "Ella", "Noah", "William", "Hugo", "Lucas", "Liam", "Oscar", "Oliver", "Matteo", "Elias", "Adam"};
-            for(int i = 0; i < 25; i++)
+            for(int i = 0; i < 15; i++)
             {
                 switch (rnd.Next(10))
                 {
@@ -114,7 +163,7 @@ namespace Excersize_3a_Lexicon
             }
             /*----------------------------------------------------*/
             List<UserError> userErrors = new List<UserError>();
-            for(int i = 0; i < 50; i++)
+            for(int i = 0; i < 15; i++)
             {
                 switch (rnd.Next(5))
                 {

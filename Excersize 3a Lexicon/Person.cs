@@ -24,7 +24,7 @@ namespace Excersize_3a_Lexicon
             {
                 if(value < 0)
                 {
-                    throw new ArgumentException($"{nameof(Age)}, {value} is too old!");
+                    throw new ArgumentException($"{nameof(Age)}, {value} is too young!");
                 }
                 age = value;
             }
