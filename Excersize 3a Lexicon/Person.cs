@@ -90,5 +90,10 @@ namespace Excersize_3a_Lexicon
             }
         }
 
+        public Person(string fname, string lname)
+        {
+            FName = fname;
+            LName = lname;
+        }
     }
 }

@@ -15,11 +15,9 @@ namespace Excersize_3a_Lexicon
         }
         public Person CreatePerson(int age, string fname, string lname, double height, double weight)
         {
-            return new Person
+            return new Person(fname, lname)
             {
                 Age = age,
-                FName = fname,
-                LName = lname,
                 Height = height,
                 Weight = weight
             };
