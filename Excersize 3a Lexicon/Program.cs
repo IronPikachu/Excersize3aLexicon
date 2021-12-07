@@ -7,7 +7,7 @@
  * F: Vilken typ måste listan vara för att alla klasser skall kunna lagras tillsammans?
  * S: Animal, basernas basklass. 
  * F: Förklara vad det är som händer.
- * S: Bruh
+ * S: Bruh. Den kallar på Stats() metoden som finns i alla objekt. Den returnerar vardera objekts definition om den finns, annars tar den Stats() ett 'steg' upp (så Pelican skulle ta från Bird i första hand, sedan animal)
  * F: Varför inte?
  * S: Animal innehåller inte den metoden, men Dog gör det. Enligt stacken är det en Animal, även om det är en Dog i heapen.
  */
